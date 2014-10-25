@@ -4,16 +4,19 @@ My Very Own To Do List
 {% for item in my_item_list %}
   <tr>
     <td>
+      &nbsp;&nbsp;&nbsp;
+    </td>
+    <td>
       {{ item }}
     </td>
     <td>
       &nbsp;&nbsp;&nbsp;
     </td>
     <td>
-      <a href="/todolist/{{ forloop.counter0 }}/moveup">^</a>
+      {% if forloop.counter0 > 0 %} <a href="/todolist/{{ forloop.counter0 }}/moveup">^</a> {% endif %}
     </td>
     <td>
-      <a href="/todolist/{{ forloop.counter0 }}/movedown">V</a>
+      {% if forloop.counter0 < max_item_num %} <a href="/todolist/{{ forloop.counter0 }}/movedown">V</a> {% endif %}
     </td>
     <td>
       &nbsp;&nbsp;&nbsp;

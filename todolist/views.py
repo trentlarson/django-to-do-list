@@ -26,6 +26,7 @@ def index(request):
     template = loader.get_template('todolist/index.html')
     context = RequestContext(request, {
         'my_item_list': my_item_list,
+        'max_item_num': len(my_item_list)-1,
     })
 
     response = HttpResponse(template.render(context))
