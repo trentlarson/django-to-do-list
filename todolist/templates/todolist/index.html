@@ -1,0 +1,5 @@
+<ul>
+{% for item in my_item_list %}
+    <li><a href="/todolist/{{ item.id }}/">{{ item.item_text }}</a></li>
+{% endfor %}
+</ul>
