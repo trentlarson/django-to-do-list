@@ -1,3 +1,6 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'todolist/bootstrap.css' %}" />
 
 My Very Own To Do List
 <table>
@@ -30,4 +33,4 @@ My Very Own To Do List
 <form method="POST" action="/todolist/create/">
   {% csrf_token %}
   <input name="new_text" type="text"/><input type="submit" value="Add item"/>
-</form
+</form>

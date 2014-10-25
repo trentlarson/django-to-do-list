@@ -6,7 +6,6 @@ Notes
 To Do
 - reorder items
 - edit items?
-- don't show up/down on first/last items
 - nice user feedback (eg. when created)
 - testing
 - styling (Boostrap, at least)
