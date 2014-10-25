@@ -13,16 +13,10 @@ def index(request):
     context = RequestContext(request, {
         'my_item_list': my_item_list,
     })
-    '''
-    output = "<li><a href='/todolist/1/delete/'>"
-    output += '</a></li><li>'.join([p.item_text for p in my_item_list])
-    output += "</li>"
-    '''
     return HttpResponse(template.render(context))
 
 def delete(request, item_id):
     Item.objects.filter(id=item_id).delete()
-    print 'Deleting object ' + item_id
     return HttpResponseRedirect('/todolist')
 
 def detail(request, item_id):

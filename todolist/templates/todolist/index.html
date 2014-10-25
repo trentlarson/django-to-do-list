@@ -1,5 +1,7 @@
+
+To Do List
 <ul>
 {% for item in my_item_list %}
-    <li><a href="/todolist/{{ item.id }}/">{{ item.item_text }}</a></li>
+    <li>{{ item.item_text }} &nbsp;&nbsp;&nbsp; <a href="/todolist/{{ item.id }}/delete">X</a></li>
 {% endfor %}
 </ul>
