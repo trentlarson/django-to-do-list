@@ -1,8 +1,8 @@
 
-To Do List
+My Very Own To Do List
 <ul>
 {% for item in my_item_list %}
-    <li>{{ item.item_text }} &nbsp;&nbsp;&nbsp; <a href="/todolist/{{ item.id }}/delete">X</a></li>
+    <li>{{ item }} &nbsp;&nbsp;&nbsp; <a href="/todolist/{{ forloop.counter0 }}/delete">X</a></li>
 {% endfor %}
 </ul>
 <form method="POST" action="/todolist/create/">
