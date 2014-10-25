@@ -1,6 +1,6 @@
 {% load staticfiles %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'todolist/bootstrap.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'todolist/css/bootstrap.css' %}" />
 
 My Very Own To Do List
 <table>
@@ -16,10 +16,10 @@ My Very Own To Do List
       &nbsp;&nbsp;&nbsp;
     </td>
     <td>
-      {% if forloop.counter0 > 0 %} <a href="/todolist/{{ forloop.counter0 }}/moveup">^</a> {% endif %}
+      {% if forloop.counter0 > 0 %} <a href="/todolist/{{ forloop.counter0 }}/moveup"><span class="glyphicon glyphicon-arrow-up"></span></a> {% endif %}
     </td>
     <td>
-      {% if forloop.counter0 < max_item_num %} <a href="/todolist/{{ forloop.counter0 }}/movedown">V</a> {% endif %}
+      {% if forloop.counter0 < max_item_num %} <a href="/todolist/{{ forloop.counter0 }}/movedown"><span class="glyphicon glyphicon-arrow-down"></span></a> {% endif %}
     </td>
     <td>
       &nbsp;&nbsp;&nbsp;
@@ -32,5 +32,5 @@ My Very Own To Do List
 </table>
 <form method="POST" action="/todolist/create/">
   {% csrf_token %}
-  <input name="new_text" type="text"/><input type="submit" value="Add item"/>
+  <input name="new_text" type="text" autofocus/><input type="submit" value="Add item"/>
 </form>

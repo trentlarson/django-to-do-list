@@ -4,11 +4,9 @@ Notes
 - no cookie format checking
 
 To Do
-- reorder items
-- edit items?
-- nice user feedback (eg. when created)
 - testing
-- styling (Boostrap, at least)
+- edit items
+- nice user feedback (eg. when created)
 - security (other people's lists)
 - investigate true REST calls
 - AJAX
