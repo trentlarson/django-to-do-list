@@ -21,8 +21,8 @@ def user_cookie_value(request):
 
 def index(request):
     my_item_list = user_cookie_value(request)
-    print "my_item_list"
-    print my_item_list
+    #print "my_item_list"
+    #print my_item_list
     template = loader.get_template('todolist/index.html')
     context = RequestContext(request, {
         'my_item_list': my_item_list,
@@ -37,8 +37,8 @@ def index(request):
 def create(request):
     my_item_list = user_cookie_value(request)
     my_item_list.append(request.POST['new_text'])
-    todoStr = json.dumps(my_item_list)
 
+    todoStr = json.dumps(my_item_list)
     response = HttpResponseRedirect('/todolist/')
     response.set_cookie('todos', todoStr)
 
@@ -58,11 +58,10 @@ def create(request):
 def delete(request, item_id):
     my_item_list = user_cookie_value(request)
     my_item_list.pop(int(item_id))
-    todoStr = json.dumps(my_item_list)
 
+    todoStr = json.dumps(my_item_list)
     response = HttpResponseRedirect('/todolist/')
     response.set_cookie('todos', todoStr)
-
     return response
 
     '''
@@ -72,6 +71,37 @@ def delete(request, item_id):
     return HttpResponseRedirect('/todolist')
     '''
 
+
+
+
+
+def moveup(request, item_id):
+    my_item_list = user_cookie_value(request)
+    index = int(item_id)
+    if index > 0:
+        item = my_item_list.pop(index)
+        my_item_list.insert(index-1, item)
+
+    todoStr = json.dumps(my_item_list)
+    response = HttpResponseRedirect('/todolist/')
+    response.set_cookie('todos', todoStr)
+    return response
+
+
+
+
+def movedown(request, item_id):
+    my_item_list = user_cookie_value(request)
+    index = int(item_id)
+    print item_id, len(my_item_list)
+    if index < (len(my_item_list) - 1):
+        item = my_item_list.pop(index)
+        my_item_list.insert(index+1, item)
+
+    todoStr = json.dumps(my_item_list)
+    response = HttpResponseRedirect('/todolist/')
+    response.set_cookie('todos', todoStr)
+    return response
 
 
 
