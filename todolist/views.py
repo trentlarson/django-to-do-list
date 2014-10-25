@@ -15,14 +15,19 @@ def index(request):
     })
     return HttpResponse(template.render(context))
 
+def create(request):
+    new_text = request.POST['new_text']
+    new_item = Item(item_text=request.POST['new_text'])
+    new_item.save()
+    print "Created new item " + str(new_item.id)
+    return HttpResponseRedirect('/todolist/')
+
 def delete(request, item_id):
     Item.objects.filter(id=item_id).delete()
+    print "Deleting item"
     return HttpResponseRedirect('/todolist')
 
 def detail(request, item_id):
     return HttpResponse("You're looking at item %s." % item_id)
 
-def results(request, item_id):
-    response = "You're looking at the results of item %s."
-    return HttpResponse(response % item_id)
 

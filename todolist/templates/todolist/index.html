@@ -5,3 +5,7 @@ To Do List
     <li>{{ item.item_text }} &nbsp;&nbsp;&nbsp; <a href="/todolist/{{ item.id }}/delete">X</a></li>
 {% endfor %}
 </ul>
+<form method="POST" action="/todolist/create/">
+  {% csrf_token %}
+  <input name="new_text" type="text"/><input type="submit" value="Add item"/>
+</form
